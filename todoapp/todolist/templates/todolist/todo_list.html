@@ -1,0 +1,21 @@
+<!-- todolist/templates/todolist/todo_list.html -->
+{% extends 'todolist/base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'add_todo' %}">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Enter new task" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    {% for todo in todos %}
+        <li>
+            {{ todo.title }}
+            <a href="{% url 'delete_todo' todo.id %}" class="delete">Delete</a>
+        </li>
+    {% empty %}
+        <li>No tasks yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

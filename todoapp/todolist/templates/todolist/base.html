@@ -1,0 +1,17 @@
+<!-- todolist/templates/todolist/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'todolist/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List App</h1>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
